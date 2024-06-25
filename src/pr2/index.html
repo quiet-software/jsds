@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NuxtJS SLDS</title>
+    <script src="https://unpkg.com/vue@2.7.16/dist/vue.js"></script>
+    <style>
+      * {
+        /* resize: both; */
+      }
+      body {
+        color: black;
+        background-color: white;
+      }
+      select {
+        width: 300px;
+      }
+    </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script id="x-app" type="text/x-template">
+    <main>
+      <div>
+        <div style="display: flex; flex-direction: row;">
+          <select v-model="story" size="10">
+            <option value="button1">button 1</option>
+            <option value="button2">button 2</option>
+          </select>
+          <div>
+            {{ story }}
+          </div>
+        </div>
+      </div>
+
+      <details>
+        <summary>Lista</summary>
+        <ul>
+          <li v-for="([is, e]) in data">
+            <label>
+              <input type="checkbox" :checked="is == 'x'" disabled>
+              <span v-html="e"></span>
+            </label>
+          </li>
+        </ul>
+      </details>
+    </main>
+  </script>
+
+  <script src="../data.js"></script>
+
+  <script>
+    const mount = () =>
+      new Vue({
+        template: '#x-app',
+        el: '#app',
+        data: () => ({
+          data: window.data || [],
+          window,
+          story: 'button1',
+        }),
+      })
+    mount();
+  </script>
+
+</body>
+</html>
