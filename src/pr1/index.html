@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NuxtJS App</title>
+    <script src="https://unpkg.com/vue@2.7.16/dist/vue.js"></script>
+    <style>
+      * {
+        /* resize: both; */
+      }
+      body {
+        color: black;
+        background-color: white;
+      }
+      select {
+        width: 300px;
+      }
+    </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script id="x-app" type="text/x-template">
+    <main>
+      NuxtJS Vue App (kręcące logo)
+    </main>
+  </script>
+
+  <script>
+    const mount = () =>
+      new Vue({
+        template: '#x-app',
+        el: '#app',
+        data: () => ({
+          window,
+        }),
+      })
+    mount();
+  </script>
+
+</body>
+</html>
